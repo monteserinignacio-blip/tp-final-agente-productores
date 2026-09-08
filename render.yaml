@@ -1,0 +1,20 @@
+# "Blueprint" de Render — al conectar el repo, Render lee este archivo y
+# preconfigura el servicio automáticamente (New > Blueprint en el dashboard).
+services:
+  - type: web
+    name: agente-productores-v2
+    runtime: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn -w 2 -b 0.0.0.0:$PORT src.webapp:app"
+    envVars:
+      - key: FIREBASE_CREDENTIALS_PATH
+        value: /etc/secrets/firebase-service-account.json
+      - key: FIREBASE_PROJECT_ID
+        value: gen-lang-client-0521346376
+      - key: FIREBASE_DATABASE_ID
+        value: ai-studio-3edb5f30-58ca-4d7c-9631-c6ddd3537670
+      - key: BASIC_AUTH_USER
+        sync: false
+      - key: BASIC_AUTH_PASS
+        sync: false
