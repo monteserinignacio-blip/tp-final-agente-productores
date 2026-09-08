@@ -64,6 +64,25 @@ python run_web.py         # levanta la interfaz web en http://127.0.0.1:5000
 
 Corre **local, no en internet** — decisión deliberada, ver `DECISIONES.md` §1.6.
 
+## Cumplimiento de la consigna del Trabajo Final
+
+Checklist explícito, punto por punto, de lo que pide la consigna y dónde se
+cumple en este repo:
+
+| Requisito de la consigna | Dónde se cumple |
+|---|---|
+| Objetivo claro | `README.md` (arriba) y `prompts/system_prompt.md` §1-2 |
+| Contrato completo: Rol / Contexto / Tarea / Restricciones / Formato / Ejemplos | `prompts/system_prompt.md` (las 6 secciones, en ese orden) |
+| Al menos 1 herramienta/conector real | `src/connectors/firestore_crm.py` (CRM real, Firestore) y `src/connectors/news.py` (Google News) |
+| Output estructurado | `src/agent.py` (cada modo devuelve un `dict` con forma fija) + formato de texto fijo en `prompts/system_prompt.md` §5 |
+| Puntos de supervisión humana definidos (L0-L4) | `prompts/system_prompt.md` §4.5 (tabla completa) y aplicados en cada `corridas/*.md` ("Nota de supervisión") |
+| Al menos 3 corridas reales, con inputs reales, guardadas tal cual | `corridas/` — 4 archivos (una de cada modo, más un 2do caso de Comercial), con fecha, input exacto y salida completa |
+| Estructura de repo: `README.md`, `prompts/`, `corridas/`, `DECISIONES.md` | Los 4 están en la raíz del repo |
+| `DECISIONES.md` documenta honestamente la iteración (qué falló, qué cambió, por qué) | `DECISIONES.md` §1 (7 sub-decisiones documentadas, incluyendo un hallazgo de calidad de datos) |
+| Análisis económico (costo por corrida, proyección semanal/anual, modelo justificado) | `DECISIONES.md` §2 |
+| Gobierno y riesgo (sistemas que toca, permisos, fallas, qué se revisa, quién firma) | `DECISIONES.md` §3 |
+| Link a repo público de GitHub | este mismo repo |
+
 ## Documentación completa
 
 - **`prompts/system_prompt.md`** — el contrato completo: rol, contexto, tarea
